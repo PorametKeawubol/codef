@@ -205,33 +205,20 @@ T isqrt(const T &x)
 // using mint=modint1000000007;
 #include <set>
 #include <string>
+#include <cmath>
+#include <algorithm>
 
 int main()
 {
-    string str;
-    cin >> str;
-    int l = 0;
-    int u = 0;
-    for (int i = 0; i < str.size(); i++)
+    long long t;
+    cin >> t;
+    while (t--)
     {
-        char a = tolower(str[i]);
-        if (str[i] == a)
-        {
-            l++;
-        }
-        else
-        {
-            u++;
-        }
+        long long a, b, k;
+        cin >> a >> b >> k;
+        long long val = min(a, b);
+        cout << "0 " << val << " " << val << " 0" << endl;
+        cout << "0 0 " << val << " " << val << endl;
     }
-    if (u > l)
-    {
-        transform(str.begin(), str.end(), str.begin(), ::toupper);
-        cout << str << endl;
-    }
-    else
-    {
-        transform(str.begin(), str.end(), str.begin(), ::tolower);
-        cout << str << endl;
-    }
+    return 0;
 }

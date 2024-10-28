@@ -208,30 +208,37 @@ T isqrt(const T &x)
 
 int main()
 {
-    string str;
-    cin >> str;
-    int l = 0;
-    int u = 0;
-    for (int i = 0; i < str.size(); i++)
+    string n;
+    cin >> n;
+    int ans = 7;
+    bool dd = false;
+    // cout << n.size();
+    for (int i = 0; i < n.size(); i++)
     {
-        char a = tolower(str[i]);
-        if (str[i] == a)
+        if (n[i] == n[i + 1])
         {
-            l++;
+            ans--;
+            // cout << ans;
+            if (ans <= 1)
+            {
+                dd = true;
+            }
         }
         else
         {
-            u++;
+            ans = 7;
         }
     }
-    if (u > l)
+    if (dd)
     {
-        transform(str.begin(), str.end(), str.begin(), ::toupper);
-        cout << str << endl;
+        cout << "YES\n";
     }
+    /*else if (n[0] == '1' && n[n.size() - 1] == '1')
+    {
+        cout << "YES\n";
+    }*/
     else
     {
-        transform(str.begin(), str.end(), str.begin(), ::tolower);
-        cout << str << endl;
+        cout << "NO\n";
     }
 }
