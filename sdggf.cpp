@@ -1,3 +1,4 @@
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -206,26 +207,47 @@ T isqrt(const T &x)
 #include <set>
 #include <string>
 #include <cctype>
+#include <algorithm>
+
 int main()
 {
-
     int t;
     cin >> t;
+
     while (t--)
     {
-        ll N, K;
-        cin >> N >> K;
-        if (N == 1)
-            cout << 1 << endl
-                 << 1 << endl;
-        else if (K % 2 == 0)
-            cout << 3 << endl
-                 << 1 << " " << K << " " << K + 1 << endl;
-        else if (K == 1 || K == N)
-            cout << -1 << endl;
-        else
-            cout << 3 << endl
-                 << 1 << " " << K - 1 << " " << K + 2 << endl;
+        int n, k;
+        cin >> n >> k;
+        map<int, vector<int>> bc;
+
+        for (int i = 0; i < k; ++i)
+        {
+            int bi, ci;
+            cin >> bi >> ci;
+            bc[bi].push_back(ci);
+        }
+
+        vector<ll> ttv;
+        for (auto &[brand, costs] : bc)
+        {
+            sort(costs.rbegin(), costs.rend());
+            ll total = 0;
+            for (int cost : costs)
+            {
+                total += cost;
+            }
+            ttv.push_back(total);
+        }
+
+        sort(ttv.rbegin(), ttv.rend());
+        ll maxc = 0;
+        for (int i = 0; i < min(n, (int)ttv.size()); ++i)
+        {
+            maxc += ttv[i];
+        }
+
+        cout << maxc << endl;
     }
+
     return 0;
 }

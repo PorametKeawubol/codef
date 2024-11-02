@@ -1,3 +1,4 @@
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -206,26 +207,46 @@ T isqrt(const T &x)
 #include <set>
 #include <string>
 #include <cctype>
+#include <algorithm>
+
 int main()
 {
-
     int t;
     cin >> t;
+
     while (t--)
     {
-        ll N, K;
-        cin >> N >> K;
-        if (N == 1)
-            cout << 1 << endl
-                 << 1 << endl;
-        else if (K % 2 == 0)
-            cout << 3 << endl
-                 << 1 << " " << K << " " << K + 1 << endl;
-        else if (K == 1 || K == N)
-            cout << -1 << endl;
-        else
-            cout << 3 << endl
-                 << 1 << " " << K - 1 << " " << K + 2 << endl;
+        string s;
+        int q;
+        cin >> s >> q;
+        int n = s.size();
+
+        set<int> me1100;
+        for (int i = 0; i <= n - 4; ++i)
+            if (s.substr(i, 4) == "1100")
+                me1100.insert(i);
+
+        while (q--)
+        {
+            int i, v;
+            cin >> i >> v;
+            --i;
+
+            if (s[i] != '0' + v)
+            {
+                for (int j = max(0, i - 3); j <= min(n - 4, i); ++j)
+                    if (s.substr(j, 4) == "1100")
+                        me1100.erase(j);
+
+                s[i] = '0' + v;
+
+                for (int j = max(0, i - 3); j <= min(n - 4, i); ++j)
+                    if (s.substr(j, 4) == "1100")
+                        me1100.insert(j);
+            }
+            cout << (me1100.empty() ? "NO" : "YES") << "\n";
+        }
     }
+
     return 0;
 }

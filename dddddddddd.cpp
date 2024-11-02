@@ -1,3 +1,4 @@
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -206,26 +207,4 @@ T isqrt(const T &x)
 #include <set>
 #include <string>
 #include <cctype>
-int main()
-{
-
-    int t;
-    cin >> t;
-    while (t--)
-    {
-        ll N, K;
-        cin >> N >> K;
-        if (N == 1)
-            cout << 1 << endl
-                 << 1 << endl;
-        else if (K % 2 == 0)
-            cout << 3 << endl
-                 << 1 << " " << K << " " << K + 1 << endl;
-        else if (K == 1 || K == N)
-            cout << -1 << endl;
-        else
-            cout << 3 << endl
-                 << 1 << " " << K - 1 << " " << K + 2 << endl;
-    }
-    return 0;
-}
+#include <algorithm>

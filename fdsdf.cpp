@@ -1,3 +1,4 @@
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -208,24 +209,38 @@ T isqrt(const T &x)
 #include <cctype>
 int main()
 {
-
     int t;
     cin >> t;
     while (t--)
     {
-        ll N, K;
-        cin >> N >> K;
-        if (N == 1)
-            cout << 1 << endl
-                 << 1 << endl;
-        else if (K % 2 == 0)
-            cout << 3 << endl
-                 << 1 << " " << K << " " << K + 1 << endl;
-        else if (K == 1 || K == N)
-            cout << -1 << endl;
+        int n;
+        cin >> n;
+        vector<int> tcase(n);
+        for (int i = 0; i < n; ++i)
+        {
+            cin >> tcase[i];
+        }
+
+        bool YesMam = true;
+        for (int i = 1; i < n; ++i)
+        {
+            int check = abs(tcase[i] - tcase[i - 1]);
+            if (check != 5 && check != 7)
+            {
+                YesMam = false;
+                break;
+            }
+        }
+
+        if (YesMam)
+        {
+            cout << "YES" << endl;
+        }
         else
-            cout << 3 << endl
-                 << 1 << " " << K - 1 << " " << K + 2 << endl;
+        {
+            cout << "NO" << endl;
+        }
     }
+
     return 0;
 }
