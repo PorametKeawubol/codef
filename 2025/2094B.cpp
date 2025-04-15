@@ -252,9 +252,13 @@ int main()
     {
         int n, m, l, r;
         cin >> n >> m >> l >> r;
-        int range = m + 1;
-        int reiei = r;
-        int leiei = (r - range + 1);
-        cout << leiei << " " << reiei << "\n";
+        if (r >= m)
+        {
+            cout << 0 << " " << m << endl;
+        }
+        else
+        {
+            cout << r - m << " " << r << endl;
+        }
     }
 }
