@@ -28,9 +28,9 @@ using vvi = vc<vi>;
 using vvll = vc<vll>;
 
 #define vv(type, name, n, ...) \
- vector<vector<type>> name(n, vector<type>(_VA_ARGS_))
+    vector<vector<type>> name(n, vector<type>(_VA_ARGS_))
 #define vvv(type, name, n, m, ...) \
- vector<vector<vector<type>>> name(n, vector<vector<type>>(m, vector<type>(_VA_ARGS_)))
+    vector<vector<vector<type>>> name(n, vector<vector<type>>(m, vector<type>(_VA_ARGS_)))
 
 template <typename T>
 using min_heap = priority_queue<T, vector<T>, greater<T>>;
@@ -59,23 +59,23 @@ constexpr T iceil(const T a, const S b) { return ifloor(a + b - 1, b); }
 template <typename T>
 void sort_unique(vector<T> &vec)
 {
- sort(vec.begin(), vec.end());
- vec.resize(unique(vec.begin(), vec.end()) - vec.begin());
+    sort(vec.begin(), vec.end());
+    vec.resize(unique(vec.begin(), vec.end()) - vec.begin());
 }
 
 template <typename T, typename S>
 constexpr bool chmin(T &a, const S b)
 {
- if (a > b)
-  return a = b, true;
- return false;
+    if (a > b)
+        return a = b, true;
+    return false;
 }
 template <typename T, typename S>
 constexpr bool chmax(T &a, const S b)
 {
- if (a < b)
-  return a = b, true;
- return false;
+    if (a < b)
+        return a = b, true;
+    return false;
 }
 
 template <typename T, typename S>
@@ -88,31 +88,31 @@ ostream &operator<<(ostream &o, const pair<T, S> &p) { return o << p.first << ' 
 template <typename T>
 void _do(vector<T> x)
 {
- for (auto i : x)
-  cerr << i << ' ';
- cerr << "\n";
+    for (auto i : x)
+        cerr << i << ' ';
+    cerr << "\n";
 }
 template <typename T>
 void _do(set<T> x)
 {
- for (auto i : x)
-  cerr << i << ' ';
- cerr << "\n";
+    for (auto i : x)
+        cerr << i << ' ';
+    cerr << "\n";
 }
 template <typename T>
 void _do(unordered_set<T> x)
 {
- for (auto i : x)
-  cerr << i << ' ';
- cerr << "\n";
+    for (auto i : x)
+        cerr << i << ' ';
+    cerr << "\n";
 }
 template <typename T>
 void _do(T &&x) { cerr << x << endl; }
 template <typename T, typename... S>
 void _do(T &&x, S &&...y)
 {
- cerr << x << ", ";
- _do(y...);
+    cerr << x << ", ";
+    _do(y...);
 }
 #else
 #define bug(...) 777771449
@@ -121,50 +121,50 @@ void _do(T &&x, S &&...y)
 template <typename T>
 void print(vector<T> x)
 {
- for (auto i : x)
-  cout << i << ' ';
- cout << "\n";
+    for (auto i : x)
+        cout << i << ' ';
+    cout << "\n";
 }
 template <typename T>
 void print(set<T> x)
 {
- for (auto i : x)
-  cout << i << ' ';
- cout << "\n";
+    for (auto i : x)
+        cout << i << ' ';
+    cout << "\n";
 }
 template <typename T>
 void print(unordered_set<T> x)
 {
- for (auto i : x)
-  cout << i << ' ';
- cout << "\n";
+    for (auto i : x)
+        cout << i << ' ';
+    cout << "\n";
 }
 template <typename T>
 void print(T &&x) { cout << x << "\n"; }
 template <typename T, typename... S>
 void print(T &&x, S &&...y)
 {
- cout << x << ' ';
- print(y...);
+    cout << x << ' ';
+    print(y...);
 }
 
 template <typename T>
 istream &operator>>(istream &i, vector<T> &vec)
 {
- for (auto &x : vec)
-  i >> x;
- return i;
+    for (auto &x : vec)
+        i >> x;
+    return i;
 }
 
 vvi read_graph(int n, int m, int base = 1)
 {
- vvi adj(n);
- for (int i = 0, u, v; i < m; ++i)
- {
-  cin >> u >> v, u -= base, v -= base;
-  adj[u].pb(v), adj[v].pb(u);
- }
- return adj;
+    vvi adj(n);
+    for (int i = 0, u, v; i < m; ++i)
+    {
+        cin >> u >> v, u -= base, v -= base;
+        adj[u].pb(v), adj[v].pb(u);
+    }
+    return adj;
 }
 
 vvi read_tree(int n, int base = 1) { return read_graph(n, n - 1, base); }
@@ -182,58 +182,58 @@ constexpr ll inf<ll> = 0x3f3f3f3f3f3f3f3f;
 template <typename T>
 vector<T> operator+=(vector<T> &a, int val)
 {
- for (auto &i : a)
-  i += val;
- return a;
+    for (auto &i : a)
+        i += val;
+    return a;
 }
 
 template <typename T>
 T isqrt(const T &x)
 {
- T y = sqrt(x + 2);
- while (y * y > x)
-  y--;
- return y;
+    T y = sqrt(x + 2);
+    while (y * y > x)
+        y--;
+    return y;
 }
 i128 str_to_i128(const string &s)
 {
- i128 result = 0;
- bool is_nega = (s[0] == '-');
+    i128 result = 0;
+    bool is_nega = (s[0] == '-');
 
- for (int i = (is_nega ? 1 : 0); i < s.size(); i++)
- {
-  result = result * 10 + (s[i] - '0');
- }
+    for (int i = (is_nega ? 1 : 0); i < s.size(); i++)
+    {
+        result = result * 10 + (s[i] - '0');
+    }
 
- return is_nega ? -result : result;
+    return is_nega ? -result : result;
 }
 
 void print_i128(i128 n)
 {
- if (n == 0)
- {
-  cout << "0";
-  return;
- }
+    if (n == 0)
+    {
+        cout << "0";
+        return;
+    }
 
- string s = "";
- bool is_nega = (n < 0);
- if (is_nega)
- {
-  n = -n;
- }
+    string s = "";
+    bool is_nega = (n < 0);
+    if (is_nega)
+    {
+        n = -n;
+    }
 
- while (n > 0)
- {
-  s = char((n % 10) + '0') + s;
-  n /= 10;
- }
+    while (n > 0)
+    {
+        s = char((n % 10) + '0') + s;
+        n /= 10;
+    }
 
- if (is_nega)
- {
-  cout << "-";
- }
- cout << s;
+    if (is_nega)
+    {
+        cout << "-";
+    }
+    cout << s;
 }
 
 #define ykh mt19937 rng(chrono::steady_clock::now().time_since_epoch().count())
@@ -246,40 +246,40 @@ void print_i128(i128 n)
 
 int main()
 {
- u32 t;
- cin >> t;
- while (t--)
- {
-  int l1, l2, l3, b1, b2, b3;
-  cin >> l1 >> b1 >> l2 >> b2 >> l3 >> b3;
-  int sum = (l1 * b1) + (l2 * b2) + (l3 * b3);
-  double root = sqrt(sum);
-  if (floor(root) == root)
-  {
-   if (l1 == l2 && l2 == l3 && l3 == (b1 + b2 + b3))
-   {
-    cout << "YES\n";
-   }
-   else if (b1 == b2 && b2 == b3 && b3 == (l1 + l2 + l3))
-   {
-    cout << "YES\n";
-   }
-   else if (b1 == (b2 + b3) && (l2 + l1) == (l3 + l1))
-   {
-    cout << "YES\n";
-   }
-   else if (l1 == (l2 + l3) && (b2 + b1) == (b3 + b1))
-   {
-    cout << "YES\n";
-   }
-   else
-   {
-    cout << "NO\n";
-   }
-  }
-  else
-  {
-   cout << "NO\n";
-  }
- }
+    u32 t;
+    cin >> t;
+    while (t--)
+    {
+        int l1, l2, l3, b1, b2, b3;
+        cin >> l1 >> b1 >> l2 >> b2 >> l3 >> b3;
+        int sum = (l1 * b1) + (l2 * b2) + (l3 * b3);
+        double root = sqrt(sum);
+        if (floor(root) == root)
+        {
+            if (l1 == l2 && l2 == l3 && l3 == (b1 + b2 + b3))
+            {
+                cout << "YES\n";
+            }
+            else if (b1 == b2 && b2 == b3 && b3 == (l1 + l2 + l3))
+            {
+                cout << "YES\n";
+            }
+            else if (b1 == (b2 + b3) && (l2 + l1) == (l3 + l1))
+            {
+                cout << "YES\n";
+            }
+            else if (l1 == (l2 + l3) && (b2 + b1) == (b3 + b1))
+            {
+                cout << "YES\n";
+            }
+            else
+            {
+                cout << "NO\n";
+            }
+        }
+        else
+        {
+            cout << "NO\n";
+        }
+    }
 }
