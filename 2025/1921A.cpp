@@ -1,4 +1,3 @@
-
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -244,30 +243,22 @@ void print_i128(i128 n)
 
 // using mint=modint998244353;
 // using mint=modint1000000007;
-
-// A. Dragons
+#include <unordered_map>
 int main()
 {
- int x, y;
- cin >> x >> y;
- int n = y;
- vector<pair<int, int>> a(n);
- for (int i = 0; i < n; i++)
+ int t;
+ cin >> t;
+ while (t--)
  {
-  cin >> a[i].first >> a[i].second;
+  int x1, y1, x2, y2, x3, y3, x4, y4;
+  cin >> x1 >> y1;
+  cin >> x2 >> y2;
+  cin >> x3 >> y3;
+  cin >> x4 >> y4;
+  int x_min = min({x1, x2, x3, x4});
+  int x_max = max({x1, x2, x3, x4});
+  int y_min = min({y1, y2, y3, y4});
+  int y_max = max({y1, y2, y3, y4});
+  cout << (x_max - x_min) * (y_max - y_min) << endl;
  }
- sort(all);
- for (int i = 0; i < n; i++)
- {
-  if (x > a[i].first)
-  {
-   x += a[i].second;
-  }
-  else
-  {
-   cout << "NO\n";
-   return 0;
-  }
- }
- cout << "YES\n";
 }

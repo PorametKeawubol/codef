@@ -1,4 +1,3 @@
-
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -244,30 +243,40 @@ void print_i128(i128 n)
 
 // using mint=modint998244353;
 // using mint=modint1000000007;
+#include <unordered_map>
 
-// A. Dragons
 int main()
 {
- int x, y;
- cin >> x >> y;
- int n = y;
- vector<pair<int, int>> a(n);
- for (int i = 0; i < n; i++)
+ int t;
+ cin >> t;
+ while (t--)
  {
-  cin >> a[i].first >> a[i].second;
- }
- sort(all);
- for (int i = 0; i < n; i++)
- {
-  if (x > a[i].first)
+  ll l, r;
+  cin >> l >> r;
+
+  auto f = [](ll x) -> ll
   {
-   x += a[i].second;
-  }
-  else
-  {
-   cout << "NO\n";
-   return 0;
-  }
+   if (x <= 0)
+    return 0;
+   ll ans = x;
+   ans -= x / 2;
+   ans -= x / 3;
+   ans -= x / 5;
+   ans -= x / 7;
+   ans += x / 6;
+   ans += x / 10;
+   ans += x / 14;
+   ans += x / 15;
+   ans += x / 21;
+   ans += x / 35;
+   ans -= x / 30;
+   ans -= x / 42;
+   ans -= x / 70;
+   ans -= x / 105;
+   ans += x / 210;
+   return ans;
+  };
+
+  cout << f(r) - f(l - 1) << "\n";
  }
- cout << "YES\n";
 }
