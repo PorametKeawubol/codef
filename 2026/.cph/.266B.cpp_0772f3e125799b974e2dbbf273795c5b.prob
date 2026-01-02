@@ -1,0 +1,1 @@
+{"name":"Local: 266B","url":"e:\\codef\\2026\\266B.cpp","tests":[{"id":1767372181399,"input":"5 1\nBGGBG\n","output":"GBGGB\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\codef\\2026\\266B.cpp","group":"local","local":true}
