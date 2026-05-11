@@ -256,7 +256,7 @@ int main()
  {
   cin >> a[i].first >> a[i].second;
  }
- sort(a.begin(), a.end());
+ sort(all);
  for (int i = 0; i < n; i++)
  {
   if (x > a[i].first)

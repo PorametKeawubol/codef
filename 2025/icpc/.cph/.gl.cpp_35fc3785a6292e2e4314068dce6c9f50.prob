@@ -1,0 +1,1 @@
+{"name":"Local: gl","url":"e:\\codef\\2025\\icpc\\gl.cpp","tests":[{"id":1757174580698,"input":"2 4\n5 5\n4 3\n","output":"1 2\n3 6\n7 4\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\codef\\2025\\icpc\\gl.cpp","group":"local","local":true}
